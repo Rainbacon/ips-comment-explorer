@@ -1,0 +1,10 @@
+web/bower_components/
+web/node_modules/
+web/.pulp-cache/
+web/output/
+web/generated-docs/
+web/.psc-package/
+web/.psc*
+web/.purs*
+web/.psa*
+api/.stack-work/
