@@ -25,6 +25,9 @@ dependencies:
 - wai-routes >= 0.10.0
 - text >= 1.2.0
 - wai >= 3.2.0
+- http-conduit >= 2.0.0
+- directory
+- bytestring
 
 library:
   source-dirs: src

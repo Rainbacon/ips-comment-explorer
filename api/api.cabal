@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1697016c4356bcc106b77271308fb090b567f21227f734ed4d6a5cd94816cb08
+-- hash: bdbf6b026dadebfc10e5e07b6e715424a0ffde9f2fbfb2159ab3efecafd1ca95
 
 name:           api
 version:        0.1.0.0
@@ -27,13 +27,16 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Comments
   other-modules:
       Paths_api
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , bytestring
+    , directory
+    , http-conduit >=2.0.0
     , text >=1.2.0
     , wai >=3.2.0
     , wai-routes >=0.10.0
@@ -51,6 +54,9 @@ executable api-exe
   build-depends:
       api
     , base >=4.7 && <5
+    , bytestring
+    , directory
+    , http-conduit >=2.0.0
     , text >=1.2.0
     , wai >=3.2.0
     , wai-routes >=0.10.0
@@ -68,6 +74,9 @@ test-suite api-test
   build-depends:
       api
     , base >=4.7 && <5
+    , bytestring
+    , directory
+    , http-conduit >=2.0.0
     , text >=1.2.0
     , wai >=3.2.0
     , wai-routes >=0.10.0

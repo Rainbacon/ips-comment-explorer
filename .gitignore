@@ -8,3 +8,4 @@ web/.psc*
 web/.purs*
 web/.psa*
 api/.stack-work/
+api/data/
