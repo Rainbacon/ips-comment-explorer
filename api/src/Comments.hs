@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Comments where
+module Comments ( getComments ) where
 
 import System.Directory
 import Network.HTTP.Conduit
@@ -38,7 +38,7 @@ getRemoteCommentsFile = do
     return bodyStr
 
 -- getComments :: IO (a)
-getComments' = do
+getComments = do
     localCommentsFile <- getLocalCommentsFile
     case localCommentsFile of
         (Just x) -> x
