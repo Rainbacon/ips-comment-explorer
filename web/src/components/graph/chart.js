@@ -1,25 +1,27 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official'
 import { connect } from 'react-redux';
 
 class Chart extends React.Component {
     constructor(props) {
         super(props);
-        this.chartData = {
-            labels: [],
-            datasets: [{
-                data: props.dataPoints
-            }]
+        this.chartOptions = {
+            type: "line",
+            series: [{
+                data: props.dataPoints,
+                name: ""
+            }],
+            xAxis: {
+                type: 'datetime'
+            }
         }
     }
 
     render() {
         return (
             <div className="ips-comment-chart">
-                <Line height={400}
-                      width={100}
-                      options={ {maintainAspectRatio: false} }
-                      data={this.chartData} />
+                <HighchartsReact highcharts={Highcharts} options={this.chartOptions} />
             </div>
         )
     }
@@ -27,8 +29,18 @@ class Chart extends React.Component {
 
 function mapStateToProps(state) {
     const { comments } = state;
+    let chartData = {};
+    comments.forEach(comment => {
+        if (chartData[comment.creation_date]) {
+            chartData[comment.creation_date]++;
+        } else {
+            chartData[comment.creation_date] = 1;
+        }
+    });
     return {
-        dataPoints: comments
+        dataPoints: Object.keys(chartData).map(k => { 
+            return { x: new Date(k), y: chartData[k] }
+        })
     };
 }
 
