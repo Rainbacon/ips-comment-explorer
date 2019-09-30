@@ -16,6 +16,7 @@ data Comment = Comment
     , tps :: Int
     , fps :: Int
     , rude :: Int
+    , creation_date :: String
     , perspective_score :: Double
     }
 

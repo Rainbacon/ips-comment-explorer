@@ -2,10 +2,18 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official'
 import { connect } from 'react-redux';
+import { getComments } from '../../services/comments.service';
+import { GET_COMMENTS_SUCCESS } from '../../actions/comments.actions';
 
 class Chart extends React.Component {
     constructor(props) {
         super(props);
+        getComments().then(data => {
+            this.props.dispatch({
+                type: GET_COMMENTS_SUCCESS,
+                payload: data
+            });
+        });
         this.chartOptions = {
             type: "line",
             series: [{

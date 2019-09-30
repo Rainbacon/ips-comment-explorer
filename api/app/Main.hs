@@ -7,7 +7,7 @@ import Routes
 
 main :: IO ()
 main = do
-    let port = 3000
+    let port = 8080
     putStrLn $ "Starting the IPS Comment API on port " ++ show port
     run port $ waiApp app
 
