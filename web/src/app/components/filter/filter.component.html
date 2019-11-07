@@ -1,0 +1,12 @@
+<div class='filter-component-wrapper'>
+    <mat-form-field>
+        <input matInput [matDatepicker]="startDatepicker" placeholder="Select start date">
+        <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatepicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="endDatepicker" placeholder="Select end date">
+        <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatepicker></mat-datepicker>
+    </mat-form-field>
+</div>
