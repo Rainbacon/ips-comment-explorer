@@ -3,7 +3,7 @@
         <input matInput
                [matDatepicker]="startDatepicker"
                placeholder="Select start date"
-               (change)="setStartDate">
+               (dateChange)="setStartDate($event)">
         <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #startDatepicker></mat-datepicker>
     </mat-form-field>
@@ -11,7 +11,7 @@
         <input matInput
                [matDatepicker]="endDatepicker"
                placeholder="Select end date"
-               (change)="setEndDate">
+               (dateChange)="setEndDate($event)">
         <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #endDatepicker></mat-datepicker>
     </mat-form-field>

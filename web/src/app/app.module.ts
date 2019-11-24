@@ -1,20 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { StoreModule } from '@ngrx/store';
-import { AppReducer } from './app.reducer';
+import { StateModule } from './state/state.module';
 
 import { 
   MatNativeDateModule, 
   MatDatepickerModule,
   MatFormFieldModule,
   MatInputModule
-} from '@angular/material'
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -29,7 +27,7 @@ import {
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    StoreModule.forRoot(AppReducer)
+    StateModule.forRoot()
   ],
   providers: [
     MatDatepickerModule
