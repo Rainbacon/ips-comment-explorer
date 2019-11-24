@@ -1,13 +1,35 @@
 import { Actions, ActionTypes } from './app.actions';
+import { Filter } from './models/filter';
 
-const initialState = {}
+interface State {
+    filter: Filter
+}
 
-export function appReducer(state=initialState, action: Actions) {
+const initialState: State = {
+    filter: {
+        startDate: new Date(),
+        endDate: new Date()
+    }
+}
+
+export function AppReducer(state=initialState, action: Actions) {
     switch(action.type) {
-        case ActionTypes.SET_FILTERS: {
+        case ActionTypes.SET_START_DATE: {
             return {
                 ...state,
-                filters: action.payload
+                filters: {
+                    ...state,
+                    startDate: action.payload
+                }
+            };
+        }
+        case ActionTypes.SET_END_DATE: {
+            return {
+                ...state,
+                filters: {
+                    ...state,
+                    endDate: action.payload
+                }
             };
         }
     }

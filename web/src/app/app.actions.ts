@@ -3,12 +3,18 @@ import { Filter } from './models/filter';
 
 // Action names
 export enum ActionTypes {
-    SET_FILTERS = "[Filter Component] Set Filters"
+    SET_START_DATE = "[Filter Component] Set Start Date",
+    SET_END_DATE = "[Filter Component] Set End Date"
 }
 
-export class SetFilterAction implements Action {
-    readonly type = ActionTypes.SET_FILTERS;
-    constructor(public payload: Filter) {}
+export class SetStartDateAction implements Action {
+    readonly type = ActionTypes.SET_START_DATE;
+    constructor(public payload: Date) {}
 }
 
-export type Actions = SetFilterAction;
+export class SetEndDateAction implements Action {
+    readonly type = ActionTypes.SET_END_DATE;
+    constructor(public payload: Date) {}
+}
+
+export type Actions = SetStartDateAction | SetEndDateAction;

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { StoreModule } from '@ngrx/store';
+import { AppReducer } from './app.reducer';
+
 import { 
   MatNativeDateModule, 
   MatDatepickerModule,
@@ -25,7 +28,8 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    StoreModule.forRoot(AppReducer)
   ],
   providers: [
     MatDatepickerModule
